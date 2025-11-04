@@ -1,0 +1,33 @@
+# Python virtual environment
+venv/
+env/
+.env/
+
+# Project specific directories
+content/
+archive/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# VS Code settings
+.vscode/
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Environment variables
+.env
+
+# OS specific
+.DS_Store
+Thumbs.db
