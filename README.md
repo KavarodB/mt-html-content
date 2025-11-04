@@ -98,7 +98,6 @@ Typical processing times for a news article:
 |---------|----------|----------|
 | Duplicate detection | ❌ Basic | ✅ Advanced tracking |
 | Container selection | Score-based | DFS-based |
-| Share buttons | ⚠️ Sometimes kept | ✅ Always removed |
 | Media handling | Inconsistent | Standardized |
 | Content merging | Basic | Smart with deduplication |
 | Structure analysis | Surface-level | Deep DOM analysis |
