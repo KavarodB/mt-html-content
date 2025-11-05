@@ -91,10 +91,10 @@ The provided news article about a medieval tower collapse in Rome demonstrates o
 
 ### Image Analysis
 ![Firefighter Response](herald.png)
-*First image shows firefighters responding to the initial collapse, demonstrating proper image extraction and caption preservation*
+
 
 ![Tower Damage](heraldscrapped.png)
-*Second image shows multiple views of the Torre dei Conti damage, showcasing our system's ability to maintain image sequences*
+
 
 The extractor successfully:
 1. Removed unrelated sidebar content (Scottish news items)
