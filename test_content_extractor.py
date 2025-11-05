@@ -2,8 +2,8 @@ import os
 from bs4 import BeautifulSoup
 from extractors.content_extractor import extract_main_content
 
-
-input_dir_name = "scrapped"
+# Global input and output directories
+input_dir_name = "scraped"
 output_dir_name = "content"
 
 

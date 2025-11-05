@@ -154,6 +154,9 @@ Content reduction:
 - Reduction: 85-95%
 - Maintained accuracy: >98%
 
+## Issue(s)
+The webscraper **web_scraper** itself is weak agains lazy loaded content, so the content extractor can not keep something that it is not scraped in the html in the first place. If you have ideas how to solve that, contributions are welcomed!😀
+
 ## License
 
 Licensed under the Apache License, Version 2.0. See LICENSE file for details.

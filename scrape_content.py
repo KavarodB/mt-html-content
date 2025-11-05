@@ -2,9 +2,9 @@ import os
 import re
 import hashlib
 from datetime import datetime
-from scrapper.web_scraper import WebScraper # Assuming this is a class in 'scrapper' module
+from scraper.web_scraper import WebScraper
 
-# Global variable: Load test URLs from article_test.csv (name was in comment but code uses 'article_today.csv')
+# Global variable: Load test URLs from csv file.
 TEST_URLS = []
 
 def load_test_urls():
@@ -51,7 +51,7 @@ def test_article_extraction():
         return
 
     # Create the output directory
-    os.makedirs("scrapped", exist_ok=True)
+    os.makedirs("scraped", exist_ok=True)
 
     scraper = WebScraper()
     print(f"\nTesting WebScraper on {len(TEST_URLS)} URLs.")
@@ -75,7 +75,7 @@ def test_article_extraction():
             html = scraper.scrape(url)
             
             if not html:
-                print("  ERROR: Failed to scrape (returned empty HTML)\n")
+                print("ERROR: Failed to scrape (returned empty HTML)\n")
                 continue
 
             # Generate hash for the HTML content
@@ -91,11 +91,11 @@ def test_article_extraction():
                 f.write(f"\n\n")
                 f.write(html)
 
-            print(f"  Saved scraped HTML: {scrape_path}")
-            print(f"  Original HTML: {len(html)} chars\n")
+            print(f"Saved scraped HTML: {scrape_path}")
+            print(f"Original HTML: {len(html)} chars\n")
 
         except Exception as e:
-            print(f"  ERROR: {e}\n")
+            print(f"\nERROR: {e}\n")
 
     print("=" * 80)
     print(f"DONE! Check the output directory: scrapped")
