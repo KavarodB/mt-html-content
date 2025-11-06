@@ -1,6 +1,6 @@
 import pandas as pd
 import ast
-from scrapper.web_scraper import WebScraper
+from scraper.web_scraper import WebScraper
 import re
 
 def clean_url_fragment(url):

@@ -7,7 +7,6 @@ Improved to handle:
 """
 
 import re
-import hashlib
 from typing import List, Tuple, Optional, Dict, Any, Set
 from dataclasses import dataclass
 from bs4 import BeautifulSoup, Tag, NavigableString

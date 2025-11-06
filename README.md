@@ -27,32 +27,39 @@ The V3 extractor solves these with:
 ## Core Files and Usage
 
 ### 1. scrape_content.py
-Main implementation file that:
-- Handles webpage fetching and initial parsing
-- Implements DFS-based content analysis
-- Manages content cleaning and standardization
-- Runtime: ~200-300ms per article
+Initial scraping pipeline that:
+- Reads URLs from 'article_today.csv'
+- Fetches and downloads complete HTML content from each URL
+- Saves raw HTML files in the 'scraped/' directory for future processing
+- Generates unique filenames based on domain and content hash
+- Runtime: ~1-2 seconds per URL (depends on webpage size and bot blockers, timeout is at 30 seconds)
 
 Example usage:
 ```python
-from scrape_content import extract_article
-
-url = "https://example.com/article"
-article = extract_article(url)
-print(article.title, article.content, article.images)
+python scrape_content.py
 ```
+This will:
+1. Read URLs from article_today.csv
+2. Download full HTML for each URL
+3. Save HTMLs as domain_hash.html in scraped/ directory
 
-### 2. test_content_extractor.py
-Comprehensive test suite that:
-- Validates extraction accuracy across different site layouts
-- Tests noise removal effectiveness
-- Verifies media handling
-- Runtime: ~2-3 seconds for full test suite
+### 2. main.py
+Content extraction processor that:
+- Takes HTML files from the 'scraped/' directory as input
+- Runs ContentExtractorV3 on each HTML file
+- Extracts only relevant article content (text, images, structure)
+- Saves cleaned HTML files in the 'content/' directory
+- Runtime: ~20ms seconds per page
 
-Run tests:
+Run the extractor:
 ```bash
-python -m pytest test_content_extractor.py
+python main.py
 ```
+This will:
+1. Process all HTMLs in scraped/ directory
+2. Extract main content using ContentExtractorV3
+3. Save cleaned content in content/ directory
+4. Print statistics about content reduction
 
 ## Solution Details
 
@@ -113,8 +120,6 @@ cd mt-html-content
 # Install dependencies
 pip install -r requirements.txt
 
-# Run tests
-python -m pytest test_content_extractor.py
 ```
 
 ### Quick Start
